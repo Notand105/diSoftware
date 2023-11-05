@@ -1,25 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Marcianos = /** @class */ (function () {
-    function Marcianos() {
+class Marcianos {
+    constructor() {
         Marcianos.cantidad = 10;
     }
-    Marcianos.getMarcianos = function () {
+    static getMarcianos() {
         return Marcianos.marcianos;
-    };
-    Marcianos.prototype.derribaMarcianos = function () {
+    }
+    derribaMarcianos() {
         if (Marcianos.cantidad > 0) {
             Marcianos.cantidad--;
             console.log("Soy el bueno, derribe un marciano");
         }
-    };
-    Marcianos.prototype.crearMarciano = function () {
+    }
+    crearMarciano() {
         if (Marcianos.cantidad > 0) {
             Marcianos.cantidad++;
             console.log("soy el malo, cree un marciano");
         }
-    };
-    Marcianos.prototype.cuantosQuedan = function (print) {
+    }
+    cuantosQuedan(print) {
         if (Marcianos.cantidad > 0) {
             if (print) {
                 console.log("Quedan : ", Marcianos.cantidad, " de marcianos");
@@ -31,8 +31,7 @@ var Marcianos = /** @class */ (function () {
             }
         }
         return Marcianos.cantidad;
-    };
-    Marcianos.marcianos = new Marcianos();
-    return Marcianos;
-}());
+    }
+}
+Marcianos.marcianos = new Marcianos();
 exports.default = Marcianos;

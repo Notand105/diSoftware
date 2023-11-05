@@ -1,21 +1,16 @@
-import Computadora from './Computadora'
-import Jugador from './Jugador'
-import Marcianos from './Marcianos'
-
+import FachadaJuego from './fachadaJuego'
 
 //para leer desde terminal
 import * as readline from 'node:readline/promises'
 import { stdin as input, stdout as output } from 'node:process'
 
-let marcianos: Marcianos = Marcianos.getMarcianos()
-let computadora: Computadora = new Computadora()
-let jugador: Jugador = new Jugador()
 
 let disparos: number = 0
+const Game = new FachadaJuego()
 
 // Función principal asincrónica para el juego
 async function main() {
-  while (marcianos.cuantosQuedan(false) > 0) {
+  while (Game.ganar()) {
     await readInput(); // Esperar a que el usuario ingrese la cantidad de disparos
   }
 }
@@ -29,10 +24,10 @@ async function readInput() {
   console.log(`disparos: ${disparos}`);
 
   for (let i = 0; i < disparos; i++) {
-    jugador.destruirMarciano();
+    Game.destruir()
   }
-  computadora.crearMarcianos();
-  marcianos.cuantosQuedan(true);
+  Game.crear()
+  Game.cantidadMarcianos()
 
   rl.close();
 }

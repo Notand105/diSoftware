@@ -2,7 +2,7 @@
   "name": "laboratorio9",
   "version": "1.0.0",
   "description": "",
-  "main": "Juego.js",
+  "main": "executable/Juego.js",
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
